@@ -1,4 +1,4 @@
-package utils;
+package data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,10 +17,10 @@ public class Message {
     private String message;
 
     @Column
-    private  Personne personne;
+    private People people;
 
-    public Message(Personne personne, String message){
-        this.personne = personne;
+    public Message(People personne, String message){
+        this.people = personne;
         this.message = message;
 
     }
@@ -41,11 +41,11 @@ public class Message {
         this.message = message;
     }
 
-    public Personne getPersonne() {
-        return personne;
+    public People getPeople() {
+        return people;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
+    public void setPeople(People people) {
+        this.people = people;
     }
 }
