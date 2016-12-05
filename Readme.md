@@ -1,5 +1,7 @@
 # Projet
 
+https://juwit.github.io/ifi-2016/tp/projet
+
 Ce projet consiste à la réalisation d'un mini réseau social.
 
 # Fonctionnalités
