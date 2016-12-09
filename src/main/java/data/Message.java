@@ -3,6 +3,7 @@ package data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Message {
     @Column
     private String message;
 
-    @Column
+    @OneToOne(targetEntity = People.class)
     private People people;
 
     public Message(People personne, String message){
