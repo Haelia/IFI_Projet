@@ -1,8 +1,10 @@
 package data;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+
 
 public interface PeopleRepository extends CrudRepository<People, Integer> {
 

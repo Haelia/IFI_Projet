@@ -25,8 +25,13 @@ public class People {
     @Column
     private String phone;
 
-    public People(int id, String firstName, String lastName, String email, String phone) {
-        this.id = id;
+    public People() {}
+
+    public People(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    public People(String firstName, String lastName, String email, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
