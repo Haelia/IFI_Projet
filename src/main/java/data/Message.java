@@ -17,11 +17,11 @@ public class Message {
     @Column
     private String message;
 
-    @OneToOne(targetEntity = People.class)
-    private People people;
+    @OneToOne(targetEntity = User.class)
+    private User user;
 
-    public Message(People personne, String message){
-        this.people = personne;
+    public Message(User user, String message){
+        this.user = user;
         this.message = message;
 
     }
@@ -42,11 +42,11 @@ public class Message {
         this.message = message;
     }
 
-    public People getPeople() {
-        return people;
+    public User getUser() {
+        return user;
     }
 
-    public void setPeople(People people) {
-        this.people = people;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
