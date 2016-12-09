@@ -7,7 +7,7 @@ package application;
 
 
 @EnableJpaRepositories("data")
-@EntityScan("data")
+@EntityScan({"data", "application"})
 @SpringBootApplication
 public class Application {
 
