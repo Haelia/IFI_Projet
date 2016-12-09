@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface PeopleRepository extends CrudRepository<People, Integer> {
 
-    People save(People people);
-
     List<People> findAll();
 
     People findByFirstNameAndLastName(String firstName, String lastName);
@@ -17,10 +15,6 @@ public interface PeopleRepository extends CrudRepository<People, Integer> {
     People findByPhone(String phone);
 
     People findByEmail(String email);
-
-    long count();
-
-    void delete(People people);
 
     boolean exists(int id);
 }
