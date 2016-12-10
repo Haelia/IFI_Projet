@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -36,5 +37,11 @@ public class SignInController {
             return "redirect:/";
         } else
             return "signIn";
+    }
+
+    @GetMapping(path="/signout")
+    public String signout(HttpSession session) {
+        session.removeAttribute("currentUser");
+        return "home";
     }
 }
