@@ -19,7 +19,7 @@ import javax.validation.Valid;
 public class SignupController {
 
     @Autowired
-    UserRepository repo;
+    private UserRepository userRepo;
 
     @GetMapping(path="/signup")
     public String signupForm(SignupForm signupForm, Model model) {
@@ -30,7 +30,8 @@ public class SignupController {
     public String signup(@Valid SignupForm form, BindingResult results) {
         if (results.hasErrors())
             return "signup";
-        repo.save(new User(form.getFirstName(), form.getName()));
-        return "redirect:home";
+        userRepo.save(new User(form));
+
+        return "redirect:/";
     }
 }

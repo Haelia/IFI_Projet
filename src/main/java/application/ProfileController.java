@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProfileController {
 
     @Autowired
-    UserRepository repo;
+    private UserRepository userRepo;
 
     @RequestMapping("/profile")
     public String profile(Model model){
         //repo.save(new User("Sarah", "Wissocq", "sw@mail.com", "06 66 66 66 66")); -> permet de tester
         User user;
-        user = repo.findAll().get(0);
-        model.addAttribute("LastName", user.getLastName());
-        model.addAttribute("FirstName", user.getFirstName());
-        model.addAttribute("Email", user.getEmail());
-        model.addAttribute("Phone", user.getPhone());
+        user = userRepo.findAll().get(0);
+        model.addAttribute("userName", user.getUserName());
+        model.addAttribute("mail", user.getMail());
+        model.addAttribute("phone", user.getPhone());
         return "profile";
     }
 }

@@ -1,28 +1,61 @@
 package application.forms;
 
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class SignupForm {
 
     @NotNull
-    private String name;
-    @NotNull
-    private String firstName;
+    @Size(min=2, max=20)
+    private String userName;
 
-    public String getName() {
-        return name;
+    @Email
+    private String mail;
+
+    private String facebook;
+    private String twitter;
+    private String linkedin;
+
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getMail() {
+        return mail;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
     }
 }

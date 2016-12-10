@@ -11,5 +11,11 @@
 
 <body>
 <p>Hello {{ Name }}, it Works</p>
+
+<ul>
+    {{ #users }}
+    <li>{{ userName }}</li>
+    {{ /users }}
+</ul>
 </body>
 </html>
