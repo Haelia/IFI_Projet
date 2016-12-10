@@ -18,7 +18,6 @@ import javax.validation.Valid;
  * Created by adrien on 10/12/16.
  */
 @Controller
-@SessionAttributes("currentUser")
 public class SignInController {
 
     @Autowired
@@ -30,10 +29,10 @@ public class SignInController {
     }
 
     @PostMapping(path="/signin")
-    public String signIn(@Valid SignInForm form, Model model) {
+    public String signIn(@Valid SignInForm form, HttpSession session) {
         User checkedUser = userRepo.findByUserName(form.getUserName());
         if (checkedUser != null && form.getPassword().equals(checkedUser.getPassword())) {
-            model.addAttribute("currentUser", checkedUser);
+            session.setAttribute("currentUser", checkedUser);
             return "redirect:/";
         } else
             return "signIn";
@@ -42,6 +41,6 @@ public class SignInController {
     @GetMapping(path="/signout")
     public String signout(HttpSession session) {
         session.removeAttribute("currentUser");
-        return "home";
+        return "redirect:/";
     }
 }
