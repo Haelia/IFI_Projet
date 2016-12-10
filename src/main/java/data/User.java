@@ -1,14 +1,16 @@
 package data;
 
-import application.forms.SignupForm;
+import application.forms.SignUpForm;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  *
  */
 @Entity
-public class User {
+public class User implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,12 +27,15 @@ public class User {
     private String facebook;
     @Column
     private String linkedin;
+    @Column
+    private String password;
 
 
     public User() {}
 
-    public User(SignupForm form) {
+    public User(SignUpForm form) {
         this.userName = form.getUserName();
+        this.password = form.getPassword();
         this.mail = form.getMail();
         this.twitter = form.getTwitter();
         this.facebook = form.getFacebook();
@@ -91,5 +96,13 @@ public class User {
 
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class SignupForm {
+public class SignUpForm {
 
     @NotNull
     @Size(min=2, max=20)
@@ -14,6 +14,10 @@ public class SignupForm {
 
     @Email
     private String mail;
+
+    @NotNull
+    @Size(min=2, max=20)
+    private String password;
 
     private String facebook;
     private String twitter;
@@ -57,5 +61,13 @@ public class SignupForm {
 
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
