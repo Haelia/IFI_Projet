@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300');
+
+/* Reset template! */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+  font-family: 'Open Sans', Tahoma, Arial, sans-serif;
+}
+
+.golden {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.golden_a {
+  flex: 1 70%;
+}
+
+.golden_b {
+  flex: 2 25%;
+}
+
+.main {
+  padding: 1%;
+}
+
+.main {
+  background: whitesmoke;
+}
+
+.menu > ul {
+  list-style-type: none;
+}
+
+.list_pidgeys {
+  margin: 2.5%;
+}
+
+.pidgey_container, .crop_circle, .pidgey_hashtag {
+  -moz-box-shadow: 0.1em 0.1em 0.1em grey;
+  -webkit-box-shadow: 0.1em 0.1em 0.1em grey;
+  box-shadow: 0.1em 0.1em 0.1em grey;
+}
+
+.pidgey_container {
+  background: white;
+  border-radius: 0.07em;
+  margin: 2%;
+  max-height: 10%;
+  position: relative;
+}
+
+.pidgey_user, .pidgey_content {
+}
+
+.pidgey_user {
+  background: #69C6DB;
+  border-top-left-radius: 0.07em;
+  border-bottom-left-radius: 0.07em;
+  padding: 2% 2% 1%;
+  flex: 1 8%;
+}
+
+.pidgey_content {
+  background: white;
+  border-top-right-radius: 0.07em;
+  border-bottom-right-radius: 0.07em;
+  flex: 2 80%;
+  height: 100%;
+}
+
+.pidgey_content > * {
+  padding: 1%;
+}
+
+/* Crop circle user pictures! */
+
+.crop_circle {
+  border-radius: 50%;
+  margin: 10% auto;
+  overflow: hidden;
+}
+
+.user_name {
+  text-align: center;
+}
+
+.user_picture {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+/* Sidebar format */
+
+.sidebar {
+  background: #303BA7;
+  color: white;
+  height: 100vh;
+}
+
+.app_title {
+  margin-top: 5%;
+  font-family: 'Open Sans Condensed', Tahoma, Arial, sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+.sidebar_user {
+  font-size: 1.25em;
+}
+
+.sidebar_user .crop_circle {
+  box-shadow: 0.1em 0.1em 0.1em #303030;
+  height: 150px;
+  width: 150px;
+}
+
+.sidebar .menu {
+  margin-top: 5%;
+}
+
+.sidebar .menu li a {
+  background: white;
+  color: grey;
+  display: block;
+  padding: 5% 10%;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sidebar .menu li a:hover {
+  animation-name: hoverMenuLink;
+  animation-duration: 1s;
+  border-left: 1em solid violet;
+  color: violet;
+}
+
+/* Pidgey format */
+
+.pidgey_user .crop_circle {
+  height: 75px;
+  width: 75px;
+}
+
+.pidgey_user .user_name {
+  color: white;
+  margin-bottom: 10%;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.pidgey_bottom {
+  bottom: 5%;
+  display: inline-block;
+  position: absolute;
+  width: 83%;
+}
+
+.pidgey_list_hashtags {
+}
+
+.pidgey_list_hashtags > * {
+  display: inline-block;
+  margin: 1%;
+}
+
+.pidgey_hashtag {
+  background: violet;
+  border-radius: 0.07em;
+  color: white;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+.pidgey_hashtag:hover {
+  animation-name: hoverHashtag;
+  animation-duration: 0.5s;
+  background: #fce9fc;
+  color: violet;
+}
+
+.pidgey_text {
+  height: 100%;
+  padding: 1% 3%;
+}
+
+.pidgey_timer {
+  color: #303030;
+  font-size: 65%;
+  font-style: italic;
+  text-align: right;
+}
