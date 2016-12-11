@@ -13,8 +13,7 @@ public class User implements Serializable {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private String id;
     @Column
     private String userName;
     @Column
@@ -42,11 +41,21 @@ public class User implements Serializable {
         this.linkedin = form.getLinkedin();
     }
 
-    public int getId() {
+    public User(String userName, String mail, String phone, String twitter, String facebook, String linkedin, String password) {
+        this.userName = userName;
+        this.mail = mail;
+        this.phone = phone;
+        this.twitter = twitter;
+        this.facebook = facebook;
+        this.linkedin = linkedin;
+        this.password = password;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
