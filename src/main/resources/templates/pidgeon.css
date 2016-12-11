@@ -24,6 +24,12 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+a {
+  transition:
+    color 0.3s,
+    background 0.3s;
+}
+
 body {
   font-family: 'Open Sans', Tahoma, Arial, sans-serif;
 }
@@ -155,13 +161,19 @@ body {
   padding: 5% 10%;
   text-decoration: none;
   text-align: center;
+  transition:
+    color 0.3s,
+    border 0.3s;
 }
 
 .sidebar .menu li a:hover {
   animation-name: hoverMenuLink;
   animation-duration: 1s;
-  border-left: 1em solid violet;
+  border-left: 0.75em solid violet;
   color: violet;
+  transition:
+    color 0.3s,
+    border 0.3s;
 }
 
 /* Pidgey format */
@@ -202,8 +214,6 @@ body {
 }
 
 .pidgey_hashtag:hover {
-  animation-name: hoverHashtag;
-  animation-duration: 0.5s;
   background: #fce9fc;
   color: violet;
 }
