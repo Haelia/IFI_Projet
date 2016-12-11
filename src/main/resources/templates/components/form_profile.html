@@ -1,9 +1,22 @@
 <div class="profileForm">
-  <form name="profileForm" method="POST" action="{{action}}">
-    <input type="text" name="first_name" id="first_name" hint="First name" value="{{userFirstName}}" required />
-    <input type="text" name="last_name" id="last_name" hint="Last name" value="{{userLastName}}" required />
-    <input type="text" name="name" id="name" hint="Your Pidgeon name" value="{{userName}}" required />
-    <input type="text" name="twitter_id" id="twitter_id" hint="You" value="{{userName}}" />
-    <input type="submit" />
+  <h2>{{user.userName}}'s Profile</h2>
+  <form name="profileForm" method="POST" action="">
+    <ul>
+      <li>
+        <input type="email" name="email" id="email" placeholder="Your e-mail address" value="{{user.email}} />"
+      </li>
+      <li>
+        <input type="text" name="twitter" id="twitter" placeholder="Your Twitter ID" value="{{user.twitter}}" />
+      </li>
+      <li>
+        <input type="text" name="facebook" id="facebook" placeholder="Your Facebook ID" value="{{user.facebook}}" />
+      </li>
+      <li>
+        <input type="text" name="linkedin" id="linkedin" placeholder="Your LinkedIn ID" value="{{user.linkedin}}" />
+      </li>
+      <li>
+        <input class="button" type="submit" value="Save"/>
+      </li>
+    </ul>
   </form>
 </div>

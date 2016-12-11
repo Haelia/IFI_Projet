@@ -18,19 +18,22 @@ import java.net.URI;
 
 public class EditProfileController {
 
+    public static final String PAGE_NAME = "editProfile";
     @Autowired
     UserRepository repo;
 
     @GetMapping(path="/editProfile")
     public String editprofileForm(EditProfileForm signupForm, Model model) {
-        return "editprofile";
+        return PAGE_NAME;
     }
 
     @PostMapping(path="/editProfile")
     public String editprofile(@Valid EditProfileForm form, BindingResult results, HttpSession session) {
-        if (results.hasErrors())
-            return "editprofile";
-        User user = (User) session.getAttribute("currentUser");
+        if (results.hasErrors()) {
+            return PAGE_NAME;
+        }
+
+        final User user = (User) session.getAttribute("currentUser");
         user.setMail(form.getMail());
         user.setPhone(form.getPhone());
         user.setPassword(form.getPassword());

@@ -6,6 +6,7 @@ import data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 @Controller
 public class SignInController {
 
+    public static final String PAGE_NAME = "signIn";
     @Autowired
     UserRepository userRepo;
 
@@ -30,14 +32,19 @@ public class SignInController {
     }
 
     @PostMapping(path="/signin")
-    public String signIn(@Valid SignInForm form, HttpSession session) {
+
+    public String signIn(@Valid SignInForm form, BindingResult result, HttpSession session) {
+        if (result.hasErrors()) {
+            return PAGE_NAME;
+        }
         RestTemplate template = new RestTemplate();
         User checkedUser = template.getForObject("http://localhost:8080/api/user/" + form.getUserName(), User.class);
+
         if (checkedUser != null && form.getPassword().equals(checkedUser.getPassword())) {
             session.setAttribute("currentUser", checkedUser);
             return "redirect:/";
         } else
-            return "signIn";
+            return PAGE_NAME;
     }
 
     @GetMapping(path="/signout")

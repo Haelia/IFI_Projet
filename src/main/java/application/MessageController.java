@@ -20,12 +20,12 @@ public class MessageController {
     @Autowired
     private MessageRepository messageRepository;
 
-    @GetMapping(path = "/newpost")
+    @GetMapping(path = "/newPidgey")
     public String newPost() {
-        return "newpost";
+        return "newPidgey";
     }
 
-    @PostMapping(path = "/newpost")
+    @PostMapping(path = "/newPidgey")
     public String signIn(@Valid MessageForm form, HttpSession session) {
         User user = (User) session.getAttribute("currentUser");
         if (user != null) {
@@ -36,7 +36,4 @@ public class MessageController {
         } else
             return "signIn";
     }
-
-
-
 }

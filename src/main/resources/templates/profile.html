@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>{{user.userName}}'s Profile – Pidgeon</title>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="/css/pidgeon.css"  />
 </head>
 <body>
-<p>{{ userName }}</p>
-<p>{{ mail }} {{ phone }}</p>
+<div class="golden">
+    <div class="golden_a main">
+      {{> components/profile}}
+
+      {{#listPidgeys}}
+      {{> components/listPidgeys}}
+      {{/listPidgeys}}
+
+      {{^listPidgeys}}
+      <p>
+          No pidgey has been sent by {{user.userName}} yet :(
+      </p>
+      {{/listPidgeys}}
+    </div>
+    <div class="golden_b sidebar">
+        {{> components/sidebar }}
+    </div>
+</div>
 </body>
 </html>

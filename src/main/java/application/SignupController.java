@@ -19,18 +19,19 @@ import javax.validation.Valid;
 @Controller
 public class SignupController {
 
+    public static final String PAGE_NAME = "signUp";
     @Autowired
     private UserRepository userRepo;
 
     @GetMapping(path="/signup")
     public String signupForm(SignUpForm signUpForm, Model model) {
-        return "signup";
+        return PAGE_NAME;
     }
 
     @PostMapping(path="/signup")
     public String signup(@Valid SignUpForm form, BindingResult results) {
         if (results.hasErrors())
-            return "signup";
+            return PAGE_NAME;
         RestTemplate template = new RestTemplate();
         template.put("http://localhost:8080/api/user/", new User(form));
         return "redirect:/";
