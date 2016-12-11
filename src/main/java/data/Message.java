@@ -1,9 +1,6 @@
 package data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  *
@@ -12,6 +9,7 @@ import javax.persistence.OneToOne;
 public class Message {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
@@ -19,6 +17,8 @@ public class Message {
 
     @OneToOne(targetEntity = User.class)
     private User user;
+
+    public Message(){}
 
     public Message(User user, String message){
         this.user = user;

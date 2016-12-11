@@ -1,5 +1,7 @@
 package application;
 
+import data.Message;
+import data.MessageRepository;
 import data.User;
 import data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class HomeController {
     @Autowired
     private UserRepository userRepo;
 
+    @Autowired
+    private MessageRepository messageRepository;
+
     @RequestMapping("/")
     public String home(Model model, HttpSession session) {
         User currentUser = (User) session.getAttribute("currentUser");
@@ -24,6 +29,8 @@ public class HomeController {
             model.addAttribute("currentUser", currentUser);
         List<User> users = userRepo.findAll();
         model.addAttribute("users", users);
+        List<Message> messages = messageRepository.findAll();
+        model.addAttribute("messages", messages);
         return "home";
     }
 
