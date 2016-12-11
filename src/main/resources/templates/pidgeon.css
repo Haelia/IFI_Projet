@@ -239,6 +239,7 @@ body {
 
 .pidgey_text > .text_userlink:hover, .pidgey_user:hover {
   background: #eaf7fa;
+  color: #69C6DB;
 }
 
 .pidgey_user:hover > * {
