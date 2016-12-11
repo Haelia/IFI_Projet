@@ -39,6 +39,11 @@ public class MessageApi {
         return messageRepo.findByUser(user);
     }
 
+    @GetMapping("/byHashtags/{hashtags}")
+    public List<Message> getByHashtags(@PathVariable String hashtags) {
+        return messageRepo.findByHashtags(hashtags);
+    }
+
     @PutMapping("/")
     public boolean postMessage(HttpSession session, @RequestBody Message message) {
         User connectedUser = (User) session.getAttribute("currentUser");
