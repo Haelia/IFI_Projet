@@ -30,7 +30,7 @@ public class HomeController {
         List<User> users = userRepo.findAll();
         model.addAttribute("users", users);
         List<Message> messages = messageRepository.findAll();
-        model.addAttribute("messages", messages);
+        model.addAttribute("listPidgeys", messages);
         return "home";
     }
 

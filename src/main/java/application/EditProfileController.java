@@ -16,12 +16,12 @@ public class EditProfileController {
     @Autowired
     UserRepository repo;
 
-    @GetMapping(path="/editprofile")
+    @GetMapping(path="/editProfile")
     public String editprofileForm(EditProfileForm signupForm, Model model) {
         return "editprofile";
     }
 
-    @PostMapping(path="/editprofile")
+    @PostMapping(path="/editProfile")
     public String editprofile(@Valid EditProfileForm form, BindingResult results) {
         if (results.hasErrors())
             return "editprofile";
