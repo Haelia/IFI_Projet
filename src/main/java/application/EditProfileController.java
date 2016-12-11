@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 public class EditProfileController {
 
+    public static final String PAGE_NAME = "editProfile";
     @Autowired
     UserRepository repo;
 
@@ -24,7 +25,7 @@ public class EditProfileController {
     @PostMapping(path="/editProfile")
     public String editprofile(@Valid EditProfileForm form, BindingResult results) {
         if (results.hasErrors())
-            return "editprofile";
+            return PAGE_NAME;
         //TODO update profile
         return "redirect:home";
     }

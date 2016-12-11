@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
+    <title>Sign in – Pidgeon</title>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/pidgeon.css"  />
 </head>
 <body>
-<form method="POST" action="signin">
-    <table>
-        <tr>
-            <td><label for="userName">Nom : </label></td><td><input type="text" name="userName" id="userName"/></td>
-        </tr>
-        <tr>
-            <td><label for="password">Mot de passe : </label></td><td><input type="password" name="password" id="password"</td>
-        </tr>
-        <tr><td><input type="submit"/></td></tr>
-
-    </table>
-
-</form>
+<div class="golden">
+    <div class="golden_a main">
+      {{> components/form_signin}}
+    </div>
+    <div class="golden_b sidebar">
+      {{> components/sidebar }}
+    </div>
+</div>
 </body>
 </html>
