@@ -40,6 +40,12 @@ body {
   font-family: 'Open Sans', Tahoma, Arial, sans-serif;
 }
 
+.main > p {
+  color: grey;
+  margin: 2%;
+  text-align: center;
+}
+
 .golden {
   display: -webkit-flex;
   display: -moz-flex;
