@@ -187,8 +187,6 @@ body {
 }
 
 .sidebar .menu li a:hover {
-  animation-name: hoverMenuLink;
-  animation-duration: 1s;
   border-left: 0.75em solid violet;
   color: violet;
 }
