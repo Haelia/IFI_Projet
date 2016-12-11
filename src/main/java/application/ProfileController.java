@@ -14,11 +14,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class ProfileController {
 
-
-
-    @Autowired
-    private UserRepository userRepo;
-
     @RequestMapping("/profile")
     public String profile(@SessionAttribute(required=false) User user, Model model){
 

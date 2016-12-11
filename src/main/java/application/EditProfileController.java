@@ -4,13 +4,16 @@ import application.forms.EditProfileForm;
 import data.User;
 import data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.net.URI;
 
 
 public class EditProfileController {
@@ -34,7 +37,11 @@ public class EditProfileController {
         user.setFacebook(form.getFbId());
         user.setLinkedin(form.getLinkedinId());
         user.setTwitter(form.getTwitterId());
-        repo.save(user);
+        RestTemplate template = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<User> entity = new HttpEntity<User>(user, headers);
+        template.exchange("http://localhost:8080/api/user/" + user.getUserName(), HttpMethod.PATCH, entity, User.class);
         return "redirect:home";
     }
 }

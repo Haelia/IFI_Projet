@@ -39,7 +39,7 @@ public class MessageApi {
         return messageRepo.findByUser(user);
     }
 
-    @PostMapping("/")
+    @PutMapping("/")
     public boolean postMessage(HttpSession session, @RequestBody Message message) {
         User connectedUser = (User) session.getAttribute("currentUser");
         User messageUser = message.getUser();
@@ -48,4 +48,6 @@ public class MessageApi {
         messageRepo.insert(message);
         return true;
     }
+
+
 }

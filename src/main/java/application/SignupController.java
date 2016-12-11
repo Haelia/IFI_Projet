@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 
@@ -30,8 +31,8 @@ public class SignupController {
     public String signup(@Valid SignUpForm form, BindingResult results) {
         if (results.hasErrors())
             return "signup";
-        userRepo.save(new User(form));
-
+        RestTemplate template = new RestTemplate();
+        template.put("http://localhost:8080/api/user/", new User(form));
         return "redirect:/";
     }
 }

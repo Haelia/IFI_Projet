@@ -3,10 +3,7 @@ package application.rest_controller;
 import data.User;
 import data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,20 @@ public class UserApi {
     @GetMapping("/name/{userName}")
     public User getUserByName(@PathVariable String userName) {
         return userRepo.findByUserName(userName);
+    }
+
+    @PatchMapping("/{userName}")
+    public User patchUser(@PathVariable String userName, @RequestBody User updatedUser) {
+        User oldUser = userRepo.findByUserName("userName");
+        if (oldUser == null || !updatedUser.getUserName().equals(oldUser.getUserName()))
+            return null;
+        updatedUser.setId(oldUser.getId());
+        userRepo.save(updatedUser);
+        return updatedUser;
+    }
+
+    @PutMapping("/")
+    public User putUser(@RequestBody User user) {
+        return userRepo.insert(user);
     }
 }
