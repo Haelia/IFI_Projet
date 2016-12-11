@@ -181,6 +181,7 @@ form ul {
 /* Crop circle user pictures! */
 
 .crop_circle {
+  background: #69C6DB;
   border-radius: 50%;
   margin: 10% auto;
   overflow: hidden;
