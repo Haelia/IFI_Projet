@@ -1,6 +1,7 @@
 package data;
 
 import application.forms.SignUpForm;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -27,6 +28,7 @@ public class User implements Serializable {
     @Column
     private String linkedin;
     @Column
+    @JsonIgnore
     private String password;
 
 
