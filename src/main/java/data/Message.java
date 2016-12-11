@@ -1,9 +1,6 @@
 package data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  *
@@ -12,7 +9,7 @@ import javax.persistence.OneToOne;
 public class Message {
 
     @Id
-    private int id;
+    private String id;
 
     @Column
     private String message;
@@ -20,17 +17,19 @@ public class Message {
     @OneToOne(targetEntity = User.class)
     private User user;
 
+    public Message(){}
+
     public Message(User user, String message){
         this.user = user;
         this.message = message;
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

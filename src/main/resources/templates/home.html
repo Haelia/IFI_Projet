@@ -22,6 +22,12 @@
     {{ /users }}
 </ul>
 
+<ul>
+    {{ #messages }}
+    <li>{{user.userName}} : {{ message }}</li>
+    {{ /messages }}
+</ul>
+
 <a href="/signup">Inscription</a><br/>
 
 
