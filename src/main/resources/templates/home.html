@@ -10,6 +10,20 @@
 
 
 <body>
-<p>Hello {{ Name }}, it Works</p>
+<h1>Hello World</h1>
+
+{{ #currentUser }}<p>Connecté en tant que {{ userName }}</p>{{ /currentUser }}
+
+<h2>Membres inscrits</h2>
+
+<ul>
+    {{ #users }}
+    <li>{{ userName }}</li>
+    {{ /users }}
+</ul>
+
+<a href="/signup">Inscription</a><br/>
+
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 package application;
 
-import application.forms.SignupForm;
+import application.forms.SignUpForm;
 import data.User;
 import data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +19,19 @@ import javax.validation.Valid;
 public class SignupController {
 
     @Autowired
-    UserRepository repo;
+    private UserRepository userRepo;
 
     @GetMapping(path="/signup")
-    public String signupForm(SignupForm signupForm, Model model) {
+    public String signupForm(SignUpForm signUpForm, Model model) {
         return "signup";
     }
 
     @PostMapping(path="/signup")
-    public String signup(@Valid SignupForm form, BindingResult results) {
+    public String signup(@Valid SignUpForm form, BindingResult results) {
         if (results.hasErrors())
             return "signup";
-        repo.save(new User(form.getFirstName(), form.getName()));
-        return "redirect:home";
+        userRepo.save(new User(form));
+
+        return "redirect:/";
     }
 }

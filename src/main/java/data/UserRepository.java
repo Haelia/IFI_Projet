@@ -10,11 +10,11 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     List<User> findAll();
 
-    User findByFirstNameAndLastName(String firstName, String lastName);
+    User findByUserName(String userName);
 
     User findByPhone(String phone);
 
-    User findByEmail(String email);
+    User findByMail(String mail);
 
     boolean exists(int id);
 }
