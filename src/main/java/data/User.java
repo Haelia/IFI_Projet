@@ -116,4 +116,10 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof User))
+            return false;
+        return this.id.equals(((User) o).id);
+    }
 }
