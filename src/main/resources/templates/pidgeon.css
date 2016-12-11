@@ -69,7 +69,7 @@ body {
   margin: 2.5%;
 }
 
-.pidgey_container, .crop_circle, .pidgey_hashtag {
+.pidgey_container, .crop_circle, .pidgey_hashtag, .text_userlink {
   -moz-box-shadow: 0.1em 0.1em 0.1em grey;
   -webkit-box-shadow: 0.1em 0.1em 0.1em grey;
   box-shadow: 0.1em 0.1em 0.1em grey;
@@ -83,15 +83,13 @@ body {
   position: relative;
 }
 
-.pidgey_user, .pidgey_content {
-}
-
 .pidgey_user {
   background: #69C6DB;
   border-top-left-radius: 0.07em;
   border-bottom-left-radius: 0.07em;
   padding: 2% 2% 1%;
   flex: 1 8%;
+  text-decoration: none;
 }
 
 .pidgey_content {
@@ -140,8 +138,15 @@ body {
   text-align: center;
 }
 
+.app_title a {
+  color: white;
+  text-decoration: none;
+}
+
 .sidebar_user {
+  color: white;
   font-size: 1.25em;
+  text-decoration: none;
 }
 
 .sidebar_user .crop_circle {
@@ -221,6 +226,23 @@ body {
 .pidgey_text {
   height: 100%;
   padding: 1% 3%;
+}
+
+.pidgey_text > .text_userlink {
+  background: #69C6DB;
+  border-radius: 0.07em;
+  margin-right: 0.2em;
+  padding: 0.2em 0.7em;
+  color: white;
+  text-decoration: none;
+}
+
+.pidgey_text > .text_userlink:hover, .pidgey_user:hover {
+  background: #eaf7fa;
+}
+
+.pidgey_user:hover > * {
+  color: #69C6DB;
 }
 
 .pidgey_timer {
