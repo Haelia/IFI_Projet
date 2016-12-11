@@ -1,15 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Home</title>
-    <meta charset="utf-8"/>
+  <title>Home – Pidgeon</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/pidgeon.css"  />
 </head>
-
-
 <body>
-<p>Hello {{ Name }}, it Works</p>
+  <div class="golden">
+    <div class="golden_a">
+      {{#listPidgeys}}
+        {{> components/listPidgeys}}
+      {{/listPidgeys}}
+
+      {{^listPidgeys}}
+        <p>
+          No pidgey has been sent yet :(
+        </p>
+      {{/listPidgeys}}
+    </div>
+    <div class="golden_b sidebar">
+      {{> components/sidebar }}
+    </div>
+  </div>
 </body>
 </html>
