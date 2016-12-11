@@ -13,4 +13,6 @@ public interface MessageRepository extends MongoRepository<Message, Integer> {
     Page<Message> findAll(Pageable pageable);
 
     List<Message> findByUser(User user);
+
+    List<Message> findByHashtags(String hashtags);
 }

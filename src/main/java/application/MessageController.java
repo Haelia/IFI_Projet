@@ -12,7 +12,9 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class MessageController {
@@ -29,7 +31,8 @@ public class MessageController {
     public String signIn(@Valid MessageForm form, HttpSession session) {
         User user = (User) session.getAttribute("currentUser");
         if (user != null) {
-            Message message =  new Message(user, form.getMessage(), new Date());
+            List<String> listHashtag = Arrays.asList(form.getHashtags().split(";"));
+            Message message =  new Message(user, form.getMessage(), new Date(), listHashtag);
             RestTemplate template = new RestTemplate();
             template.put("http://localhost:8080/api/message/", message);
             return "redirect:/";
