@@ -1,0 +1,26 @@
+<h1 class="app_title"><a href="#">Pidgeon</a></h1>
+{{#loggedUser}}
+<a class="sidebar_user" href="#">
+  <div class="crop_circle">
+    <!-- TODO I don't know how the image will be passed -->
+    <img class="user_picture" src="{{loggedUserPicture}}"
+      alt="{{loggedUserName}}'s profile picture" />
+  </div>
+  <h3 class="user_name">{{loggedUserName}}</h3>
+</a>
+{{/loggedUser}}
+<nav class="menu">
+  <ul>
+    {{#loggedUser}}
+    <!-- TODO Add links -->
+    <li><a href="#">Edit my profile</a></li>
+    <li><a href="#">Sign out</a></li>
+    {{/loggedUser}}
+
+    {{^loggedUser}}
+    <!-- TODO Add links -->
+    <li><a href="#">Sign in</a></li>
+    <li><a href="#">Join us!</a></li>
+    {{/loggedUser}}
+  </ul>
+</nav>

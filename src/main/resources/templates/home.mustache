@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home – Pidgeon</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="pidgeon.css"  />
+</head>
+<body>
+  <div class="golden">
+    <div class="golden_a">
+      {{#listPidgeys}}
+        {{> components/listPidgeys}}
+      {{/listPidgeys}}
+
+      {{^listPidgeys}}
+        <p>
+          No pidgey has been sent yet :(
+        </p>
+      {{/listPidgeys}}
+    </div>
+    <div class="golden_b">
+      {{> components/sidebar}}
+    </div>
+  </div>
+</body>
+</html>
