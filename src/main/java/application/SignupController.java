@@ -19,9 +19,7 @@ import javax.validation.Valid;
 @Controller
 public class SignupController {
 
-    public static final String PAGE_NAME = "signUp";
-    @Autowired
-    private UserRepository userRepo;
+    public static final String PAGE_NAME = "signup";
 
     @GetMapping(path="/signup")
     public String signupForm(SignUpForm signUpForm, Model model) {

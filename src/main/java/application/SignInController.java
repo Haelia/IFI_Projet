@@ -38,8 +38,7 @@ public class SignInController {
             return PAGE_NAME;
         }
         RestTemplate template = new RestTemplate();
-        User checkedUser = template.getForObject("http://localhost:8080/api/user/" + form.getUserName(), User.class);
-
+        User checkedUser = template.getForObject("http://localhost:8080/api/user/name/" + form.getUserName(), User.class);
         if (checkedUser != null && form.getPassword().equals(checkedUser.getPassword())) {
             session.setAttribute("currentUser", checkedUser);
             return "redirect:/";
