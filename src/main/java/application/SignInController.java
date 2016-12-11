@@ -32,14 +32,15 @@ public class SignInController {
     }
 
     @PostMapping(path="/signin")
-
     public String signIn(@Valid SignInForm form, BindingResult result, HttpSession session) {
         if (result.hasErrors()) {
             return PAGE_NAME;
         }
         RestTemplate template = new RestTemplate();
-        User checkedUser = template.getForObject("http://localhost:8080/api/user/name/" + form.getUserName(), User.class);
-        if (checkedUser != null && form.getPassword().equals(checkedUser.getPassword())) {
+        final String request = String.format("http://localhost:8080/api/user/authenticate/%s/%s", form.getUserName(), form.getPassword());
+        final User checkedUser = template.getForObject(request, User.class);
+
+        if (checkedUser != null) {
             session.setAttribute("currentUser", checkedUser);
             return "redirect:/";
         } else

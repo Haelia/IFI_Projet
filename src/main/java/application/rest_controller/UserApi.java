@@ -28,16 +28,35 @@ public class UserApi {
     }
 
 
-    @
-
     @PatchMapping("/{userName}")
     public User patchUser(@PathVariable String userName, @RequestBody User updatedUser) {
-        User oldUser = userRepo.findByUserName("userName");
+        User oldUser = userRepo.findByUserName(userName);
         if (oldUser == null || !updatedUser.getUserName().equals(oldUser.getUserName()))
             return null;
         updatedUser.setId(oldUser.getId());
         userRepo.save(updatedUser);
         return updatedUser;
+    }
+
+    @GetMapping("/authenticate/{userName}/{password}")
+    public User authenticate(@PathVariable String userName, @PathVariable String password) {
+        if (userName != null && password != null && !userName.isEmpty() && !password.isEmpty()) {
+            final User user = userRepo.findByUserName(userName);
+            if (user != null ) {
+                if (user.getPassword().equals(password)) {
+                    final User connectedUser = new User(user.getUserName(),
+                            user.getMail(),
+                            user.getPhone(),
+                            user.getTwitter(),
+                            user.getFacebook(),
+                            user.getLinkedin(),
+                            null);
+                    return connectedUser;
+                }
+            }
+        }
+
+        return null;
     }
 
     @PutMapping("/")
