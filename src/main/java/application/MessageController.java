@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 public class MessageController {
@@ -27,7 +28,7 @@ public class MessageController {
     public String signIn(@Valid MessageForm form, HttpSession session) {
         User user = (User) session.getAttribute("currentUser");
         if (user != null) {
-            Message message =  new Message(user, form.getMessage());
+            Message message =  new Message(user, form.getMessage(), new Date());
             messageRepository.save(message);
             return "redirect:/";
         } else
