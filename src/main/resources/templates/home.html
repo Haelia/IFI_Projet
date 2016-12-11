@@ -1,35 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Home</title>
-    <meta charset="utf-8"/>
+  <title>Home – Pidgeon</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/pidgeon.css"  />
 </head>
-
-
 <body>
-<h1>Hello World</h1>
+  <div class="golden">
+    <div class="golden_a">
+      {{#listPidgeys}}
+        {{> components/listPidgeys}}
+      {{/listPidgeys}}
 
-{{ #currentUser }}<p>Connecté en tant que {{ userName }}</p>{{ /currentUser }}
-
-<h2>Membres inscrits</h2>
-
-<ul>
-    {{ #users }}
-    <li>{{ userName }}</li>
-    {{ /users }}
-</ul>
-
-<ul>
-    {{ #messages }}
-    <li>{{user.userName}} : {{ message }}</li>
-    {{ /messages }}
-</ul>
-
-<a href="/signup">Inscription</a><br/>
-
-
+      {{^listPidgeys}}
+        <p>
+          No pidgey has been sent yet :(
+        </p>
+      {{/listPidgeys}}
+    </div>
+    <div class="golden_b sidebar">
+      {{> components/sidebar }}
+    </div>
+  </div>
 </body>
 </html>
