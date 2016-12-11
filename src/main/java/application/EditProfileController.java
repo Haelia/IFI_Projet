@@ -21,7 +21,7 @@ public class EditProfileController {
 
     @GetMapping(path="/editProfile")
     public String editprofileForm(EditProfileForm signupForm, Model model) {
-        return "editprofile";
+        return PAGE_NAME;
     }
 
     @PostMapping(path="/editProfile")
