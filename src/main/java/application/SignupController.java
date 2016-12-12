@@ -2,8 +2,6 @@ package application;
 
 import application.forms.SignUpForm;
 import data.User;
-import data.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,7 +17,7 @@ import javax.validation.Valid;
 @Controller
 public class SignupController {
 
-    public static final String PAGE_NAME = "signup";
+    public static final String PAGE_NAME = "/signup";
 
     @GetMapping(path="/signup")
     public String signupForm(SignUpForm signUpForm, Model model) {
