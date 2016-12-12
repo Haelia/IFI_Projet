@@ -6,13 +6,13 @@ public class EditProfileForm {
 
     private String mail;
 
-    private String phone;
+    private String phone = "";
 
-    private String facebook;
+    private String facebook = "";
 
-    private String twitter;
+    private String twitter = "";
 
-    private String linkedin;
+    private String linkedin = "";
 
     public String getMail() {
         return mail;

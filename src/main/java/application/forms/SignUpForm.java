@@ -19,9 +19,9 @@ public class SignUpForm {
     @Size(min=2, max=20)
     private String password;
 
-    private String facebook;
-    private String twitter;
-    private String linkedin;
+    private String facebook = "";
+    private String twitter = "";
+    private String linkedin = "";
 
     public String getUserName() {
         return userName;

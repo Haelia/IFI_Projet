@@ -20,13 +20,13 @@ public class User implements Serializable {
     @Column
     private String mail;
     @Column
-    private String phone;
+    private String phone = "";
     @Column
-    private String twitter;
+    private String twitter = "";
     @Column
-    private String facebook;
+    private String facebook = "";
     @Column
-    private String linkedin;
+    private String linkedin = "";
     @Column
     @JsonIgnore
     private String password;
