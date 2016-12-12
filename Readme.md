@@ -1,23 +1,37 @@
-# Projet
+# Pidgeon
 
-https://juwit.github.io/ifi-2016/tp/projet
+Pidgeon est un mini réserau social, entièrement développé à l'aide de Spring MVC
 
-Ce projet consiste à la réalisation d'un mini réseau social.
 
-# Fonctionnalités
-Ci-dessous, la liste des différentes fonctionnalités à implémenter
+# Lancement de l'application en mode test
+Il faut avoir `mongoDB` installé sur la machine et `mongod` doit tourner sur le port par défaut
 
-## Fonctionnalités obligatoires
-Création/Manipulation du profil utilisateur(email/id facebook/photo...) 	
-Micro-Blogging : Post de messages 	
-Gestion des hashtags et affichage des messages par utilisateur et hashtag 	
-API de web services (gestion utilisateur/post et lecture de messages) 	
+Pour executer l'application : 
+* `git clone https://www.github.com/Haelia/IFI_Projet`
+* `cd IFI_Projet`
+* `mvn package`
+* `java -jar target/projet-jee-1.0-SNAPSHOT.jar`
+ 
+Vous pouvez ensuite lancer un navigateur sur localhost:8080/
 
-## Fonctionnalités optionnelles
-Post de messages sur Facebook/Twitter 	
-Mise en place Spring Security 	
-Recherche de messages/utilisateurs/hashtags... 	
-Tests unitaires
+# API REST
+
+Voici quelques indications et exemples pour l'utilisation de l'API REST
+
+Les URL pour les requetes REST commencent toutes par `/api`.
+On a une API pour les utilisateurs et une API pour les messages.
+
+## Utilisateurs
+
+* `GET /api/user/` renvoie la liste de tous les utilisateurs
+* `GET /api/user/name/[NOM]` renvoie l'utilisateur ayant pour nom [NOM]
+* `PUT /api/user/` enregistre un nouvel utilisateur. Ses données doivent être dans le corps de la requête en JSON
+
+## Messages
+
+* `GET /api/message/` renvoie les 30 derniers messages
+* `GET /api/message/byUser/[NOM]` renvoie les messages de l'utilisateur qui s'appelle [NOM] 
+
 
 # Auteurs 
 Agez Adrien, Bour Armand et Wissocq Sarah
