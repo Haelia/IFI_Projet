@@ -51,6 +51,7 @@ public class UserApi {
                             user.getFacebook(),
                             user.getLinkedin(),
                             null);
+                    connectedUser.setId(user.getId());
                     return connectedUser;
                 }
             }

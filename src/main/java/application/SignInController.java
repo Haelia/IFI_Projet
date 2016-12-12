@@ -27,7 +27,10 @@ public class SignInController {
     UserRepository userRepo;
 
     @GetMapping(path="/signin")
-    public String signInForm() {
+    public String signInForm(HttpSession session) {
+        if (session.getAttribute("currentUser") != null) {
+            return "redirect:/";
+        }
         return "signIn";
     }
 

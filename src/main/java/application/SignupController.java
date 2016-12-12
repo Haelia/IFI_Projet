@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -20,7 +21,11 @@ public class SignupController {
     public static final String PAGE_NAME = "/signup";
 
     @GetMapping(path="/signup")
-    public String signupForm(SignUpForm signUpForm, Model model) {
+    public String signupForm(Model model, HttpSession session) {
+        final User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser != null) {
+            return "redirect:/";
+        }
         return PAGE_NAME;
     }
 

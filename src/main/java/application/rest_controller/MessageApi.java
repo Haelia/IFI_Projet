@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -40,11 +41,11 @@ public class MessageApi {
     }
 
     @PutMapping("/")
-    public boolean postMessage(HttpSession session, @RequestBody Message message) {
-        User connectedUser = (User) session.getAttribute("currentUser");
+    public boolean postMessage(@RequestBody Message message) {
         User messageUser = message.getUser();
-        if (connectedUser == null || messageUser == null || !connectedUser.equals(messageUser))
+        if (messageUser == null) {
             return false;
+        }
         messageRepo.insert(message);
         return true;
     }

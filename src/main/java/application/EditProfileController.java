@@ -23,8 +23,14 @@ public class EditProfileController {
     UserRepository repo;
 
     @GetMapping(path="/editProfile")
-    public String editprofileForm(EditProfileForm signupForm, Model model) {
-        return PAGE_NAME;
+    public String editprofileForm(Model model, HttpSession session) {
+        final User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser != null) {
+            model.addAttribute("currentUser", currentUser);
+            return PAGE_NAME;
+        } else {
+            return "redirect:signin";
+        }
     }
 
     @PostMapping(path="/editProfile")
