@@ -25,8 +25,9 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model, HttpSession session) {
         User currentUser = (User) session.getAttribute("currentUser");
-        if (currentUser != null)
+        if (currentUser != null) {
             model.addAttribute("currentUser", currentUser);
+        }
         RestTemplate template = new RestTemplate();
         Message[] messages = template.getForObject("http://localhost:8080/api/message/", Message[].class);
         model.addAttribute("listPidgeys", messages);
