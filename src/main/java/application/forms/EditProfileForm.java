@@ -1,16 +1,18 @@
 package application.forms;
 
+import javax.validation.constraints.NotNull;
+
 public class EditProfileForm {
 
     private String mail;
 
     private String phone;
 
-    private String fbId;
+    private String facebook;
 
-    private String twitterId;
+    private String twitter;
 
-    private String linkedinId;
+    private String linkedin;
 
     public String getMail() {
         return mail;
@@ -28,28 +30,28 @@ public class EditProfileForm {
         this.phone = phone;
     }
 
-    public String getFbId() {
-        return fbId;
+    public String getFacebook() {
+        return facebook;
     }
 
-    public void setFbId(String fbId) {
-        this.fbId = fbId;
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 
-    public String getTwitterId() {
-        return twitterId;
+    public String getTwitter() {
+        return twitter;
     }
 
-    public void setTwitterId(String twitterId) {
-        this.twitterId = twitterId;
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
     }
 
-    public String getLinkedinId() {
-        return linkedinId;
+    public String getLinkedin() {
+        return linkedin;
     }
 
-    public void setLinkedinId(String linkedinId) {
-        this.linkedinId = linkedinId;
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
     }
 
     public String getPassword() {
@@ -60,5 +62,6 @@ public class EditProfileForm {
         this.password = password;
     }
 
+    @NotNull
     private String password;
 }

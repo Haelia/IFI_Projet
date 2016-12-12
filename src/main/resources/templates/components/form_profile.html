@@ -1,18 +1,21 @@
 <div class="profileForm">
-  <h2>{{user.userName}}'s Profile</h2>
+  <h2>{{currentUser.userName}}'s Profile</h2>
   <form name="profileForm" method="POST" action="">
     <ul>
       <li>
-        <input type="email" name="email" id="email" placeholder="Your e-mail address" value="{{user.email}} />"
+        <input type="mail" name="mail" id="mail" placeholder="Your e-mail address" value="{{currentUser.mail}}" />
       </li>
       <li>
-        <input type="text" name="twitter" id="twitter" placeholder="Your Twitter ID" value="{{user.twitter}}" />
+        <input type="text" name="twitter" id="twitter" placeholder="Your Twitter ID" value="{{currentUser.twitter}}" />
       </li>
       <li>
-        <input type="text" name="facebook" id="facebook" placeholder="Your Facebook ID" value="{{user.facebook}}" />
+        <input type="text" name="facebook" id="facebook" placeholder="Your Facebook ID" value="{{currentUser.facebook}}" />
       </li>
       <li>
-        <input type="text" name="linkedin" id="linkedin" placeholder="Your LinkedIn ID" value="{{user.linkedin}}" />
+        <input type="text" name="linkedin" id="linkedin" placeholder="Your LinkedIn ID" value="{{currentUser.linkedin}}" />
+      </li>
+      <li>
+        <input type="password" name="password" id="password" placeholder="Your actual password" />
       </li>
       <li>
         <input class="button" type="submit" value="Save"/>

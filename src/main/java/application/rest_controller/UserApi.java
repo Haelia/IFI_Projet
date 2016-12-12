@@ -28,10 +28,10 @@ public class UserApi {
     }
 
 
-    @PatchMapping("/{userName}")
-    public User patchUser(@PathVariable String userName, @RequestBody User updatedUser) {
+    @PutMapping("/{userName}/{oldPass}")
+    public User patchUser(@PathVariable String userName, @PathVariable String oldPass, @RequestBody User updatedUser) {
         User oldUser = userRepo.findByUserName(userName);
-        if (oldUser == null || !updatedUser.getUserName().equals(oldUser.getUserName()))
+        if (oldUser == null || !oldPass.equals(oldUser.getPassword()))
             return null;
         updatedUser.setId(oldUser.getId());
         userRepo.save(updatedUser);
