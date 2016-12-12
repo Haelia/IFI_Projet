@@ -14,19 +14,13 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class ProfileController {
 
-
-
-    @Autowired
-    private UserRepository userRepo;
-
     @RequestMapping("/profile")
-    public String profile(@SessionAttribute(required=false) User user, Model model){
-
-        if (user == null)
+    public String profile(@SessionAttribute(required=false) User user, HttpSession session, Model model) {
+        if (user == null) {
             return "redirect:signup";
-        model.addAttribute("userName", user.getUserName());
-        model.addAttribute("mail", user.getMail());
-        model.addAttribute("phone", user.getPhone());
+        }
+
+        model.addAttribute("userProfile", user);
         return "profile";
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -26,7 +27,10 @@ public class SignInController {
     UserRepository userRepo;
 
     @GetMapping(path="/signin")
-    public String signInForm() {
+    public String signInForm(HttpSession session) {
+        if (session.getAttribute("currentUser") != null) {
+            return "redirect:/";
+        }
         return "signIn";
     }
 
@@ -35,9 +39,11 @@ public class SignInController {
         if (result.hasErrors()) {
             return PAGE_NAME;
         }
+        RestTemplate template = new RestTemplate();
+        final String request = String.format("http://localhost:8080/api/user/authenticate/%s/%s", form.getUserName(), form.getPassword());
+        final User checkedUser = template.getForObject(request, User.class);
 
-        User checkedUser = userRepo.findByUserName(form.getUserName());
-        if (checkedUser != null && form.getPassword().equals(checkedUser.getPassword())) {
+        if (checkedUser != null) {
             session.setAttribute("currentUser", checkedUser);
             return "redirect:/";
         } else

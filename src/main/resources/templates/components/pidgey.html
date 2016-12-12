@@ -1,20 +1,20 @@
 <section class="pidgey_container container golden">
   <!-- TODO Not sure how to generate the link  -->
-  <a class="pidgey_user" href="{{pidgeyLinkUser}}">
+  <a class="pidgey_user" href="#">
     <div class="crop_circle">
       <!-- TODO Don't know how the image will be passed -->
       <img class="user_picture" src="" />
     </div>
-    <h6 class="user_name">{{pidgey.user.userName}}</h6>
+    <h6 class="user_name">{{user.userName}}</h6>
   </a>
   <div class="pidgey_content">
     <p class="pidgey_text">
-      {{pidgey.message}}
+      {{message}}
     </p>
     <div class="pidgey_bottom">
       <p class="pidgey_timer">
         <!-- TODO Might need formatting -->
-        Sent at {{pidgeyTimer}}
+        Sent at {{postedAt}}
       </p>
     </div>
   </div>

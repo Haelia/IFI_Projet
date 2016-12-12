@@ -1,6 +1,7 @@
 package data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  *
@@ -17,12 +18,17 @@ public class Message {
     @OneToOne(targetEntity = User.class)
     private User user;
 
-    public Message(){}
+    @Column
+    private Date postedAt;
 
-    public Message(User user, String message){
+
+    public Message(){
+    }
+
+    public Message(User user, String message, Date postedAt){
         this.user = user;
         this.message = message;
-
+        this.postedAt = new Date();
     }
 
     public String getId() {
@@ -47,5 +53,13 @@ public class Message {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getPostedAt() {
+        return postedAt;
+    }
+
+    public void setPostedAt(Date postedAt) {
+        this.postedAt = postedAt;
     }
 }

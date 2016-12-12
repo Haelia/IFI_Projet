@@ -1,6 +1,7 @@
 package data;
 
 import application.forms.SignUpForm;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ public class User implements Serializable {
 
     @Id
     private String id;
-    @Column
+    @Column(unique = true)
     private String userName;
     @Column
     private String mail;
@@ -27,6 +28,7 @@ public class User implements Serializable {
     @Column
     private String linkedin;
     @Column
+    @JsonIgnore
     private String password;
 
 
@@ -113,5 +115,11 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof User))
+            return false;
+        return this.id.equals(((User) o).id);
     }
 }

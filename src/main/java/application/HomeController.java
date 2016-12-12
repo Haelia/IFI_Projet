@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -25,11 +25,11 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model, HttpSession session) {
         User currentUser = (User) session.getAttribute("currentUser");
-        if (currentUser != null)
+        if (currentUser != null) {
             model.addAttribute("currentUser", currentUser);
-        List<User> users = userRepo.findAll();
-        model.addAttribute("users", users);
-        List<Message> messages = messageRepository.findAll();
+        }
+        RestTemplate template = new RestTemplate();
+        Message[] messages = template.getForObject("http://localhost:8080/api/message/", Message[].class);
         model.addAttribute("listPidgeys", messages);
         return "home";
     }
