@@ -60,8 +60,9 @@ public class UserApi {
         return null;
     }
 
-    @PutMapping("/")
-    public User putUser(@RequestBody User user) {
+    @PutMapping("/{password}")
+    public User putUser(@RequestBody User user, @PathVariable String password) {
+        user.setPassword(password);
         return userRepo.insert(user);
     }
 }

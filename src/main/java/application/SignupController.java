@@ -34,7 +34,7 @@ public class SignupController {
         if (results.hasErrors())
             return PAGE_NAME;
         RestTemplate template = new RestTemplate();
-        template.put("http://localhost:8080/api/user/", new User(form));
+        template.put("http://localhost:8080/api/user/" + form.getPassword(), new User(form));
         return "redirect:/";
     }
 }
